@@ -9,5 +9,5 @@ package com.techlads.sadapaytest.utils
  * @package com.techlads.sadapaytest.utils
  */
 
-class Constants {
-}
+
+const val PER_PAGE = 20

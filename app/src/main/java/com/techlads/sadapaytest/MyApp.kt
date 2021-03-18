@@ -1,5 +1,8 @@
 package com.techlads.sadapaytest
 
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
 
 /**
  *
@@ -9,5 +12,5 @@ package com.techlads.sadapaytest
  * @package com.techlads.sadapaytest
  */
 
-class MyApp {
-}
+@HiltAndroidApp
+class MyApp : Application()

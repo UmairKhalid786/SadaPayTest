@@ -1,7 +1,6 @@
 package com.techlads.sadapaytest.framework.common
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -20,12 +19,12 @@ abstract class BaseActivity(@LayoutRes val layout : Int) : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout)
-        setSupportActionBar(getToolbar())
-        init()
+//        setSupportActionBar(getToolbar())
+        initStuff()
         listeners()
     }
 
-    abstract fun init()
+    abstract fun initStuff()
     abstract fun listeners()
-    abstract fun getToolbar(): Toolbar
+    abstract fun getToolbar(): Toolbar?
 }

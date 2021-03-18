@@ -1,5 +1,8 @@
 package com.techlads.sadapaytest.data.entities
 
+import com.techlads.sadapaytest.data.api.GithubApi
+import javax.inject.Inject
+
 
 /**
  *
@@ -9,5 +12,9 @@ package com.techlads.sadapaytest.data.entities
  * @package com.techlads.sadapaytest.data.entities
  */
 
-class RemoteDataSource {
+class RemoteDataSource @Inject constructor(
+    private val api : GithubApi
+) : BaseDataSource() {
+
+    suspend fun getRepos(page : Int) = getResult { api.getRepos(page) }
 }

@@ -1,4 +1,4 @@
-package com.techlads.sadapaytest.data.entities.api
+package com.techlads.sadapaytest.data.api
 
 import com.techlads.sadapaytest.data.entities.LatestRepositoryResponse
 import com.techlads.sadapaytest.utils.PER_PAGE
@@ -12,7 +12,7 @@ import retrofit2.http.Query
  * Kotlin
  *
  * @author Umair Khalid (umair.khalid786@outlook.com)
- * @package com.techlads.sadapaytest.data.entities.api
+ * @package com.techlads.sadapaytest.data.api
  */
 
 

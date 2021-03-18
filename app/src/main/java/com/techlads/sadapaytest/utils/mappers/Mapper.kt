@@ -1,6 +1,6 @@
 package com.techlads.swvl.utils.mappers
 
-import com.techlads.swvl.utils.Resource
+import com.techlads.sadapaytest.utils.Resource
 
 
 /**

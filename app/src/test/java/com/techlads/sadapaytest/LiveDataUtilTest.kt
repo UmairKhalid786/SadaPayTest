@@ -1,4 +1,4 @@
-package com.techlads.swvl
+package com.techlads.sadapaytest
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
