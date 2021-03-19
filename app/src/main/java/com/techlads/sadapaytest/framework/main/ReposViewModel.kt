@@ -18,8 +18,15 @@ import javax.inject.Inject
  * @package com.techlads.sadapaytest.framework.main
  */
 @HiltViewModel
-class ReposViewModel @Inject constructor(private val savedStateHandle: SavedStateHandle,
-                                         private val useCase: MainRepository) : ViewModel() {
+class ReposViewModel @Inject constructor(
+    private val savedStateHandle: SavedStateHandle,
+    private val useCase: MainRepository
+) : ViewModel() {
+
+    var totalPageCount = 1
+    var currentPage = 1
+
+    var isLoading: Boolean = false
 
     private val _content = MutableLiveData<Resource<LatestRepositoryResponse>>()
     val content: LiveData<Resource<LatestRepositoryResponse>> = _content

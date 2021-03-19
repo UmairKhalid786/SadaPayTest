@@ -84,6 +84,15 @@ dependencies {
     def gversion = '2.71828'
     implementation "com.squareup.picasso:picasso:$gversion"
 
+    def lottieVersion = "3.6.1"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    def swipeToRefresh = "1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeToRefresh"
+
+    def picassoTrans = "2.2.1"
+    implementation "jp.wasabeef:picasso-transformations:$picassoTrans"
+
     //---------------------------- TESTING ----------------------------//
 
     // Local Unit Tests

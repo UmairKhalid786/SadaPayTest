@@ -7,6 +7,7 @@ import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import com.squareup.picasso.Picasso
 import com.techlads.sadapaytest.R
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 
 /**
@@ -28,7 +29,7 @@ fun ViewGroup.inflate(@LayoutRes layout: Int, attachToParent: Boolean = false) :
 
 fun ImageView.loadImage(
     url: String,
-    defaultImg: Int = R.mipmap.ic_launcher) {
+    defaultImg: Int = R.drawable.circular_corners_bg) {
 
-    Picasso.get().load(url).placeholder(defaultImg).error(defaultImg).into(this)
+    Picasso.get().load(url).placeholder(defaultImg).transform(CropCircleTransformation()).error(defaultImg).into(this)
 }

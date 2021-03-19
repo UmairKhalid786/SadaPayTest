@@ -7,6 +7,7 @@
     <ImageView
         android:id="@+id/avatarIv"
         android:layout_marginRight="@dimen/basic_padding"
+        android:layout_marginTop="6dp"
         android:layout_width="46dp"
         android:layout_height="46dp"
         android:layout_marginEnd="@dimen/basic_padding"

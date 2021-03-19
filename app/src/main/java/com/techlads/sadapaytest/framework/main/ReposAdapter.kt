@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.item_list_photo.view.*
 
 
 class ReposAdapter(
-    private var values: List<LatestRepositoryResponse.Repo>,
+    private var values: MutableList<LatestRepositoryResponse.Repo>,
     inline val getFirstVisiblePostion : () -> Int,
     inline val getLastVisiblePostion : () -> Int
 ) : RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
@@ -40,8 +40,9 @@ class ReposAdapter(
     override fun getItemCount() = values.size
 
     fun update(vals: List<LatestRepositoryResponse.Repo>) {
-        this.values = vals
-        notifyDataSetChanged()
+        val lastSize =  this.values.size
+        this.values.addAll(vals)
+        notifyItemRangeChanged(lastSize, this.values.size)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
