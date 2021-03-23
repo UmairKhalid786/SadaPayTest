@@ -13,10 +13,8 @@ import com.squareup.moshi.Json
 
 data class LatestRepositoryResponse(@field:Json(name = "items") val repos : List<Repo>,
                                     val total_count: Int) {
-    data class Repo(val id: Int,
-                    val name: String,
+    data class Repo(val name: String,
                     val full_name: String,
-                    val private : Boolean,
                     val description : String,
                     val language : String,
                     val stargazers_count : Int,

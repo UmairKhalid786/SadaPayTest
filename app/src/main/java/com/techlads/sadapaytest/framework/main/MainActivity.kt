@@ -1,10 +1,10 @@
 package com.techlads.sadapaytest.framework.main
 
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.techlads.sadapaytest.R
 import com.techlads.sadapaytest.data.entities.LatestRepositoryResponse
 import com.techlads.sadapaytest.framework.common.BaseActivity
@@ -45,13 +45,18 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     override fun listeners() {
         retryBtn?.setOnClickListener { initialCall() }
-        swipeRL?.setOnRefreshListener { initialCall() }
+        swipeRL?.setOnRefreshListener {
+            //Reset everything
+            reposAdapter.values = arrayListOf()
+            viewModel.currentPage = 1
+            initialCall()
+        }
         viewModel.content.observe(this, onReposResponse)
         reposRv?.addOnScrollListener(object : PaginationScrollListener(reposRv?.layoutManager as LinearLayoutManager) {
             override fun loadMoreItems() {
                 viewModel.isLoading = true
                 viewModel.currentPage++
-
+                reposAdapter.addLoadingFooter()
                 viewModel.getRepos(viewModel.currentPage)
             }
 
@@ -78,6 +83,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
         swipeRL?.isRefreshing = false
         viewModel.isLoading = false
+        reposAdapter.removeLoadingFooter()
 
         when (it?.status) {
             Resource.Status.SUCCESS -> {
@@ -90,9 +96,6 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                     viewModel.totalPageCount = (sh.total_count / PER_PAGE)
                     reposAdapter.update(sh.repos)
                 }
-//                if (!it.data?.photos?.photos.isNullOrEmpty()) (searchResultRv.adapter as PhotosAdapter).update(
-//                    it.data?.photos?.photos!!
-//                )
             }
 
             Resource.Status.ERROR -> {

@@ -40,7 +40,7 @@ abstract class NetModule {
         @Provides
         @Singleton
         internal fun provideCache(@ApplicationContext context: Context): Cache {
-            //checkThread()
+            checkThread()
             return Cache(context.cacheDir, HTTP_RESPONSE_CACHE)
         }
 
@@ -54,9 +54,9 @@ abstract class NetModule {
         @Provides
         @Singleton
         internal fun provideOkHttpClient(
-            // cache: Cache,
+             //cache: Cache,
         ): OkHttpClient {
-            // checkThread()
+            //checkThread()
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
 
@@ -86,5 +86,6 @@ abstract class NetModule {
         fun provideFlickerApi(retrofit: Retrofit): GithubApi {
             return retrofit.create(GithubApi::class.java)
         }
+
     }
 }

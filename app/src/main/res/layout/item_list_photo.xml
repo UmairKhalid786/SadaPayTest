@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/basic_padding"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -21,13 +23,13 @@
 
             <TextView
                 android:id="@+id/nameTv"
-                android:text="test1234"
+                android:text=""
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/repoTv"
-                android:text="Repo123"
+                android:text=""
                 android:layout_marginTop="@dimen/mini_margin"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
@@ -35,30 +37,46 @@
 
             <TextView
                 android:id="@+id/descTv"
-                android:text="Description abc"
+                android:text=""
                 android:layout_marginTop="@dimen/mini_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:id="@+id/tagsLl"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/mini_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:src="@android:drawable/radiobutton_on_background"
+                    app:tint="@color/purple_500"
+                    android:layout_marginRight="@dimen/mini_margin"
+                    android:layout_width="@dimen/small_star_size"
+                    android:layout_height="@dimen/small_star_size"
+                    android:layout_marginEnd="@dimen/mini_margin"/>
+
                 <TextView
                     android:id="@+id/lanTv"
-                    android:text="Python"
+                    android:text=""
                     android:layout_marginRight="@dimen/basic_padding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/basic_padding"
                     />
 
+                <ImageView
+                    android:src="@android:drawable/btn_star"
+                    app:tint="@color/golden"
+                    android:layout_marginRight="@dimen/mini_margin"
+                    android:layout_width="@dimen/small_star_size"
+                    android:layout_height="@dimen/small_star_size"
+                    android:layout_marginEnd="@dimen/mini_margin" />
                 <TextView
                     android:id="@+id/starsTv"
-                    android:text="115"
+                    android:text=""
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

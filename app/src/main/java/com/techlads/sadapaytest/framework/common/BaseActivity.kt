@@ -17,14 +17,13 @@ import androidx.appcompat.widget.Toolbar
  * @package com.techlads.sadapaytest.framework.common
  */
 
-abstract class BaseActivity(@LayoutRes val layout : Int) : AppCompatActivity() {
+abstract class BaseActivity(@LayoutRes val layout : Int) : AppCompatActivity(layout) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         super.onCreate(savedInstanceState)
-        setContentView(layout)
 //        setSupportActionBar(getToolbar())
         initStuff()
         listeners()

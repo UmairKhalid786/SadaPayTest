@@ -13,9 +13,10 @@
 
         <include layout="@layout/shimmer_loading" android:id="@+id/shimmerLl" />
 
+        <include layout="@layout/main_content" />
+
         <include layout="@layout/animation_view" android:id="@+id/animView" />
 
-        <include layout="@layout/main_content" />
 
     </RelativeLayout>
 
